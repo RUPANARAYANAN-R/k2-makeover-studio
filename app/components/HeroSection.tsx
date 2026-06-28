@@ -95,7 +95,7 @@ export default function HeroSection() {
                 />
               </Link>
               <a
-                href="https://wa.me/919876543210?text=Hi%20K2%20Makeover%20Studio%2C%20I%27m%20interested%20in%20your%20makeup%20services"
+                href="https://wa.me/918946098353?text=Hi%20K2%20Makeover%20Studio%2C%20I%27m%20interested%20in%20your%20makeup%20services"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary inline-flex items-center justify-center gap-2"

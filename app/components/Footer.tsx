@@ -90,7 +90,7 @@ export default function Footer() {
             <h3 className="font-semibold text-lg mb-4 text-[#D4A373]">Connect</h3>
             <div className="space-y-3">
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/918946098353"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-400 hover:text-[#D4A373] transition-colors"
@@ -100,7 +100,7 @@ export default function Footer() {
               </a>
               <div className="flex items-center gap-2 text-gray-400">
                 <Phone size={18} />
-                <span>+91 98765 43210</span>
+                <span>+91 89460 98353</span>
               </div>
               <div className="flex items-center gap-2 text-gray-400">
                 <MapPin size={18} />

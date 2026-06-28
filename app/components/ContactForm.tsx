@@ -260,7 +260,7 @@ export default function ContactForm() {
           <div>
             <p className="mb-2 font-semibold text-[#D4A373]">WhatsApp</p>
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/918946098353"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-[#2B2B2B] transition-colors hover:text-[#D4A373]"
