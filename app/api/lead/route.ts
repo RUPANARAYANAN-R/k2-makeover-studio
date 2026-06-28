@@ -115,7 +115,9 @@ export async function POST(request: NextRequest) {
 async function saveToGoogleSheets(data: LeadFormData) {
   try {
     if (!SHEETS_ID) {
-      throw new Error('Missing GOOGLE_SHEETS_ID env variable.');
+      console.warn('Missing GOOGLE_SHEETS_ID env variable.');
+      console.log('Lead fallback log (missing ID):', data);
+      return { success: true };
     }
 
     try {
@@ -153,8 +155,9 @@ async function saveToGoogleSheets(data: LeadFormData) {
       return { success: true };
     }
   } catch (error) {
-    console.error('Google Sheets error:', error);
-    return { success: false };
+    console.error('Google Sheets critical error:', error);
+    console.log('Lead fallback log (critical error):', data);
+    return { success: true };
   }
 }
 

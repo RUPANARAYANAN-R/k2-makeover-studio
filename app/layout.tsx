@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -44,6 +45,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col bg-gradient-to-b from-[#FFF8F5] to-[#F5F5F5]">
         {children}
+        <FloatingWhatsApp />
       </body>
     </html>
   );
