@@ -20,17 +20,26 @@ const RATE_LIMIT_MAP = new Map<string, { count: number; resetTime: number }>();
 const SHEETS_ID = process.env.GOOGLE_SHEETS_ID;
 const SHEETS_RANGE = process.env.GOOGLE_SHEETS_RANGE || 'Sheet1!A1:F1';
 const SHEETS_CREDENTIAL_PATH = process.env.GOOGLE_SHEETS_CREDENTIALS_PATH;
+const SHEETS_CREDENTIALS_JSON = process.env.GOOGLE_SHEETS_CREDENTIALS;
 const SHEETS_SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
 
 const rateLimitMap = RATE_LIMIT_MAP;
 
 async function getSheetsClient() {
-  if (!SHEETS_CREDENTIAL_PATH) {
-    throw new Error('Missing GOOGLE_SHEETS_CREDENTIALS_PATH env variable.');
-  }
+  let credentials;
 
-  const rawCredentials = fs.readFileSync(SHEETS_CREDENTIAL_PATH, 'utf8');
-  const credentials = JSON.parse(rawCredentials);
+  if (SHEETS_CREDENTIALS_JSON) {
+    try {
+      credentials = JSON.parse(SHEETS_CREDENTIALS_JSON);
+    } catch (e) {
+      throw new Error('Failed to parse GOOGLE_SHEETS_CREDENTIALS env variable.');
+    }
+  } else if (SHEETS_CREDENTIAL_PATH) {
+    const rawCredentials = fs.readFileSync(SHEETS_CREDENTIAL_PATH, 'utf8');
+    credentials = JSON.parse(rawCredentials);
+  } else {
+    throw new Error('Missing Google Sheets credentials (either GOOGLE_SHEETS_CREDENTIALS or GOOGLE_SHEETS_CREDENTIALS_PATH).');
+  }
 
   const auth = new google.auth.GoogleAuth({
     credentials,
