@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+Sitemap: https://k2makeover.com/sitemap.xml
+
+# Crawl delay for respectful indexing
+Crawl-delay: 1
